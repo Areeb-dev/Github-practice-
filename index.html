@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hiiiiii</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Candara, Oswald;
+        }
+
+        p {
+            font-size: 32px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 25%;
+        }
+
+        button {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 10px 20px;
+        }
+
+        .container {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+        }
+
+        #botao1 {
+            display: inline-block;
+        }
+
+        #botao2 {
+            position: absolute;
+            transition: top 0.3s ease, left 0.3s ease;
+            /* Smooth transition for movement */
+        }
+    </style>
+</head>
+
+<body>
+    <p>Can we hang out soon?</p>
+    <img src="https://media.tenor.com/zGm5acSjHCIAAAAM/cat-begging.gif">
+
+    <div class="container">
+        <button id="botao1">YES BBY!</button>
+        <button id="botao2">NO</button>
+    </div>
+
+    <script>
+        const button2 = document.getElementById('botao2');
+        const container = document.querySelector('.container');
+
+        container.addEventListener('click', function (event) {
+            // Get the dimensions of the container
+            const rect = container.getBoundingClientRect();
+
+            // Generate random positions within the container
+            const randomX = Math.random() * 6 * (rect.width - button2.offsetWidth);
+            const randomY = Math.random() * 5 * (rect.height - button2.offsetHeight);
+
+            // Apply the random positions to the button
+            button2.style.left = randomX + 'px';
+            button2.style.top = randomY + 'px';
+        });
+
+        document.getElementById('botao1').addEventListener('click', function () {
+            alert('YAYY THANK U LOVE U');
+        });
+    </script>
+
+</body>
+
+</html>
